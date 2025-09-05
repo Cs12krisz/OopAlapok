@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OopAlapok
 {
-
-
 
     class BankSzamla
     {
@@ -19,45 +18,52 @@ namespace OopAlapok
             get { return egyenleg; }
             set
             {
-                if (egyenleg > 0)
-                {
-                    egyenleg = value;
-                }
-                else
-                {
-                    Console.WriteLine("Az egyenleg nem lehet negatív!");
-                }
+                if (egyenleg < 0) Console.WriteLine("Az egyenleg nem lehet negatív!");
+                else egyenleg = value;
             }
         }
 
 
-        static void Bevesz(int ertek)
+        public BankSzamla(int egyenleg)
         {
+            Egyenleg = egyenleg;
         }
 
-        static void Kivesz()
+        public void Bevesz(int ertek)
         {
-
+            Egyenleg += ertek;
         }
 
-        public BankSzamla() { }
-
+        public void Kivesz(int ertek)
+        {
+            if (Egyenleg - ertek < 0)
+            {
+                Console.WriteLine("Nincsen elég pénz!");
+            }
+            else
+            {
+                Egyenleg -= ertek;
+            }
+        }
 
     }
+
     class Szemely
     {
         public string nev = "Név";
-        private int kor = -3;
+        private int kor = 53;
         public int Kor
         {
             get { return this.kor; }
-            set {
+            set
+            {
 
-                if (this.kor > 0) {
+                if (this.kor > 0)
+                {
                     this.kor = value;
                 }
                 else { Console.WriteLine("Nem lehet negatív az életkor!"); }
-                
+
             }
         }
 
@@ -70,8 +76,8 @@ namespace OopAlapok
 
         public Szemely(string nev, int kor)
         {
-           this.nev = nev;
-           Kor = kor;
+            this.nev = nev;
+            Kor = kor;
         }
     }
 
@@ -85,6 +91,13 @@ namespace OopAlapok
             Console.WriteLine(tanulo.Kor);
             Szemely szemely1 = new Szemely("Személy", -1);
             Console.WriteLine(szemely1);
+            BankSzamla bankSzamla1 = new BankSzamla(300);
+            bankSzamla1.Bevesz(100);
+            Console.WriteLine(bankSzamla1.Egyenleg);
+            bankSzamla1.Kivesz(500);
+            Console.WriteLine(bankSzamla1.Egyenleg);
+
+
         }
     }
 }
