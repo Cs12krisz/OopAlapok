@@ -9,19 +9,40 @@ namespace OopAlapok
     class Szemely
     {
         public string nev = "Név";
-        public int kor = 35;
+        private int kor = -3;
+        public int Kor
+        {
+            get { return this.kor; }
+            set {
 
+                if (this.kor > 0) {
+                    this.kor = value;
+                }
+                else { Console.WriteLine("Nem lehet negatív az életkor!"); }
+                
+            }
+        }
+
+
+        public Szemely() { }
+
+        public Szemely(string nev, int kor)
+        {
+           this.nev = nev;
+           Kor = kor;
+        }
     }
 
     internal class Program
     {
-        
 
         static void Main(string[] args)
         {
             Szemely tanulo = new Szemely();
             Console.WriteLine(tanulo.nev);
-            Console.WriteLine(tanulo.kor);
+            Console.WriteLine(tanulo.Kor);
+            Szemely szemely1 = new Szemely("Személy", -1);
+            Console.WriteLine(szemely1.Kor);
         }
     }
 }
