@@ -6,6 +6,44 @@ using System.Threading.Tasks;
 
 namespace OopAlapok
 {
+
+
+
+    class BankSzamla
+    {
+
+        private int egyenleg;
+
+        public int Egyenleg
+        {
+            get { return egyenleg; }
+            set
+            {
+                if (egyenleg > 0)
+                {
+                    egyenleg = value;
+                }
+                else
+                {
+                    Console.WriteLine("Az egyenleg nem lehet negatív!");
+                }
+            }
+        }
+
+
+        static void Bevesz(int ertek)
+        {
+        }
+
+        static void Kivesz()
+        {
+
+        }
+
+        public BankSzamla() { }
+
+
+    }
     class Szemely
     {
         public string nev = "Név";
