@@ -23,6 +23,10 @@ namespace OopAlapok
             }
         }
 
+        public override string ToString()
+        {
+            return $"Név: {this.nev}; Életkor: {Kor};";
+        }
 
         public Szemely() { }
 
@@ -42,7 +46,7 @@ namespace OopAlapok
             Console.WriteLine(tanulo.nev);
             Console.WriteLine(tanulo.Kor);
             Szemely szemely1 = new Szemely("Személy", -1);
-            Console.WriteLine(szemely1.Kor);
+            Console.WriteLine(szemely1);
         }
     }
 }
