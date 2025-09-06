@@ -8,6 +8,26 @@ using System.Threading.Tasks;
 namespace OopAlapok
 {
 
+    class Hallgato : Szemely
+    {
+        private string neptunKod;
+
+        public string NeptunKod
+        {
+            get { return neptunKod; }
+            set { neptunKod = value; }
+        }
+
+
+        public Hallgato(string nev, int kor, string neptunkod) : base(nev, kor)
+        {
+            this.nev = nev;
+            Kor = kor;
+            NeptunKod = neptunkod;
+        }
+    }
+
+
     class BankSzamla
     {
 
@@ -96,7 +116,8 @@ namespace OopAlapok
             Console.WriteLine(bankSzamla1.Egyenleg);
             bankSzamla1.Kivesz(500);
             Console.WriteLine(bankSzamla1.Egyenleg);
-
+            Hallgato hallgato = new Hallgato("Nagy János", 23, "erere23");
+            Console.WriteLine($"A hallgató neve {hallgato.nev} akinek kora {hallgato.Kor} és neptunkódja {hallgato.NeptunKod}");
 
         }
     }
