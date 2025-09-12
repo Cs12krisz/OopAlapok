@@ -8,14 +8,19 @@ using System.Threading.Tasks;
 namespace OopAlapok
 {
 
-    class Hallgato : Szemely
+    public class Hallgato : Szemely
     {
         private string neptunKod;
 
         public string NeptunKod
         {
             get { return neptunKod; }
-            set { neptunKod = value; }
+            set {
+                if (value.Length <= 6)
+                {
+                    neptunKod = value;
+                }
+            }
         }
 
 
@@ -75,9 +80,9 @@ namespace OopAlapok
 
     }
 
-   class Szemely
+   public class Szemely
    {
-        private string nev;
+        protected string nev;
         private int kor;
         public int Kor
         {
