@@ -21,10 +21,12 @@ namespace OopAlapok
 
         public Hallgato(string nev, int kor, string neptunkod) : base(nev, kor)
         {
-            this.Nev = nev;
+            Nev = nev;
             Kor = kor;
             NeptunKod = neptunkod;
         }
+
+
     }
 
 
@@ -38,7 +40,7 @@ namespace OopAlapok
             get { return egyenleg; }
             set
             {
-                if (egyenleg < 0) Console.WriteLine("Az egyenleg nem lehet negatív!");
+                if (value < 0) Console.WriteLine("Az egyenleg nem lehet negatív!");
                 else egyenleg = value;
             }
         }
@@ -75,31 +77,33 @@ namespace OopAlapok
         public int Kor
         {
             get { return this.kor; }
-            set
+            protected set
             {
 
-                if (this.kor > 0)
+                if (value > 0)
                 {
                     this.kor = value;
                 }
-                else { Console.WriteLine("Nem lehet negatív az életkor!"); }
 
             }
         }
-
-        public string Nev { get => nev; set => nev = value; }
+        
+        public string Nev { get => nev; protected set => nev = value; }
 
 
         public override string ToString()
         {
-            return $"Név: {this.Nev}; Életkor: {Kor};";
+            return $"Név: {Nev}; Életkor: {Kor};";
         }
 
 
         public Szemely(string nev, int kor)
         {
-            this.Nev = nev;
-            Kor = kor;
+            
+           Nev = nev;
+           Kor = kor;
+            
+            
         }
     }
 
