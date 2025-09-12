@@ -31,11 +31,17 @@ namespace OopAlapok
             NeptunKod = neptunkod;
         }
 
+        public override void Kiir()
+        {
+            Console.WriteLine("Én egy hallgató vagyok.");
+        }
 
         public override string ToString()
         {
             return $"A hallgató neve {Nev} akinek kora {Kor} és neptunkódja {NeptunKod}";
         }
+
+
 
 
     }
@@ -81,6 +87,29 @@ namespace OopAlapok
 
     }
 
+    public class Dolgozo : Szemely
+    {
+        private int ber;
+
+        public int Ber
+        {
+            get { return ber; }
+            set { ber = value; }
+        }
+
+        public override void Kiir()
+        {
+            Console.WriteLine("Én egy dolgozó vagyok");
+        }
+
+        public Dolgozo(string nev, int kor, int ber) : base(nev, kor) 
+        {
+            Nev = nev;
+            Kor = kor;
+            Ber = ber;
+        }
+    }
+
    public class Szemely
    {
         protected string nev;
@@ -105,6 +134,10 @@ namespace OopAlapok
             set { nev = value; }
         }
 
+        public virtual void Kiir()
+        {
+            Console.WriteLine("Én egy személy vagyok.");
+        }
 
         public override string ToString()
         {
@@ -150,6 +183,7 @@ namespace OopAlapok
             {
                 Console.WriteLine(item);
             }
+
         }
     }
 }
