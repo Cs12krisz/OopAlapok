@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OopAlapok
 {
-
+  
     public class Hallgato : Szemely
     {
         private string neptunKod;
@@ -30,6 +30,7 @@ namespace OopAlapok
             Kor = kor;
             NeptunKod = neptunkod;
         }
+
 
         public override string ToString()
         {
@@ -98,7 +99,11 @@ namespace OopAlapok
             }
         }
         
-        public string Nev { get => nev; set => nev = value; }
+        public string Nev 
+        {
+            get { return nev; }
+            set { nev = value; }
+        }
 
 
         public override string ToString()
@@ -109,13 +114,10 @@ namespace OopAlapok
 
         public Szemely(string nev, int kor)
         {
-            
            Nev = nev;
            Kor = kor;
-            
-            
         }
-    }
+   }
 
     internal class Program
     {
@@ -130,9 +132,24 @@ namespace OopAlapok
             Console.WriteLine(bankSzamla1.Egyenleg);
             bankSzamla1.Kivesz(500);
             Console.WriteLine(bankSzamla1.Egyenleg);
-            Hallgato hallgato = new Hallgato("Nagy János", 23, "erere23");
-            Console.WriteLine(hallgato);
 
+            List<Hallgato> hallgatok = new List<Hallgato>();
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Kérem a nevet: ");
+                string nev = Console.ReadLine();
+                Console.Write("Kérem az életkort: ");
+                int kor = int.Parse(Console.ReadLine());
+                Console.Write("Kérem a neptunkódot: ");
+                string neptkod = Console.ReadLine();
+                Hallgato h1 = new Hallgato(nev, kor, neptkod);
+                hallgatok.Add(h1);
+            }
+
+            foreach (var item in hallgatok)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
