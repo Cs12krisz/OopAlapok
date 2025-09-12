@@ -26,6 +26,11 @@ namespace OopAlapok
             NeptunKod = neptunkod;
         }
 
+        public override string ToString()
+        {
+            return $"A hallgató neve {Nev} akinek kora {Kor} és neptunkódja {NeptunKod}";
+        }
+
 
     }
 
@@ -51,7 +56,7 @@ namespace OopAlapok
             Egyenleg = egyenleg;
         }
 
-        public void Bevesz(int ertek)
+        public void Betesz(int ertek)
         {
             Egyenleg += ertek;
         }
@@ -70,14 +75,14 @@ namespace OopAlapok
 
     }
 
-    class Szemely
-    {
+   class Szemely
+   {
         private string nev;
         private int kor;
         public int Kor
         {
             get { return this.kor; }
-            protected set
+            set
             {
 
                 if (value > 0)
@@ -88,7 +93,7 @@ namespace OopAlapok
             }
         }
         
-        public string Nev { get => nev; protected set => nev = value; }
+        public string Nev { get => nev; set => nev = value; }
 
 
         public override string ToString()
@@ -116,12 +121,12 @@ namespace OopAlapok
             Szemely szemely1 = new Szemely("Személy", -1);
             Console.WriteLine(szemely1);
             BankSzamla bankSzamla1 = new BankSzamla(300);
-            bankSzamla1.Bevesz(100);
+            bankSzamla1.Betesz(100);
             Console.WriteLine(bankSzamla1.Egyenleg);
             bankSzamla1.Kivesz(500);
             Console.WriteLine(bankSzamla1.Egyenleg);
             Hallgato hallgato = new Hallgato("Nagy János", 23, "erere23");
-            Console.WriteLine($"A hallgató neve {hallgato.Nev} akinek kora {hallgato.Kor} és neptunkódja {hallgato.NeptunKod}");
+            Console.WriteLine(hallgato);
 
         }
     }
